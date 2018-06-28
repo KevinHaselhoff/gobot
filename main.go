@@ -30,8 +30,6 @@ func main() {
 
 			case *slack.ConnectedEvent:
 				botID = ev.Info.User.ID
-				response := "Moin Moin!"
-				api.PostMessage(slackMessage.Channel, response, params)
 
 			case *slack.MessageEvent:
 				callerID := ev.Msg.User
