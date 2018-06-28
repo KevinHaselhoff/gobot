@@ -13,6 +13,11 @@ jobs:
           command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
 
       - run:
+          name: Install make
+          command: |
+                  apt-get install make         
+
+      - run:
           name: Install Helm
           command: |
                   curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
