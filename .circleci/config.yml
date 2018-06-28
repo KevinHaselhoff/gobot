@@ -41,7 +41,19 @@ jobs:
           shell: /bin/bash
           command: |
             make push
-            
+
+      - run:
+          name: Generate kubeconfig
+          shell: /bin/bash
+          command: |
+            make k8sconfig            
+
+      - run:
+          name: Helm deploy
+          shell: /bin/bash
+          command: |
+            make k8s-deploy
+
 workflows:
   version: 2
   build_deploy:
