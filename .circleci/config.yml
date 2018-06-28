@@ -7,6 +7,7 @@ jobs:
           TAG: v${CIRCLE_BUILD_NUM} 
 
     steps:
+      - checkout
       - run:
           name: Store Service Account
           command: echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
@@ -21,8 +22,6 @@ jobs:
       - setup_remote_docker:
           version: 17.06.0-ce
           reusable: false
-
-      - checkout
       
       - run:
           name: Login to docker hub

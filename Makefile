@@ -28,7 +28,6 @@ k8sconfig:
 
 .PHONY: k8s-deploy
 k8s-deploy:
-		helm init
 		helm upgrade --install gobot ./deploy/gobot \
 		--namespace gobot \
 		--set env.slackToken="${SLACK_TOKEN}"
