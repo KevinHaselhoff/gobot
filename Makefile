@@ -18,6 +18,14 @@ build:
 push:
 		docker push ${DOCKER_IMAGE}:${TAG}
 
+.PHONY: k8sconfig
+k8sconfig:
+		gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+		gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+		gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+		gcloud config set project ${GOOGLE_PROJECT_ID}
+		gcloud --quiet container clusters --region ${GOOGLE_COMPUTE_ZONE} get-credentials ${GOOGLE_CLUSTER_NAME}
+
 .PHONY: k8s-deploy
 k8s-deploy:
 		helm upgrade --install gobot ./deploy/gobot \

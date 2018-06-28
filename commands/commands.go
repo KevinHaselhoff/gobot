@@ -25,10 +25,9 @@ func CheckCommand(api *slack.Client, slackMessage slack.Msg, command string) {
 		response := "<https://img.srv2.de/customer/sbahnMuenchen/newsticker/newsticker.html|Aktuelles>"
 		response += " | <" + mvvRoute("Freising", "München, Hauptbahnhof") + "|Ins Büro>"
 		response += " | <" + mvvRoute("München, Hauptbahnhof", "Freising") + "|Nach Hause>"
-
 		api.PostMessage(slackMessage.Channel, response, params)
 	} else if args[0] == "wb" {
-		response := ":partly_sunny_rain: <https://darksky.net/forecast/48.398,11.9227/ca24/de#week|Wetter Berglern>"
+		response := ":partly_sunny_rain: <https://darksky.net/forecast/48.398,11.9227/ca24/de|Wetter Berglern>"
 		api.PostMessage(slackMessage.Channel, response, params)
 	} else if args[0] == "gce" {
 		response := "GCE will be implemented shortly"
