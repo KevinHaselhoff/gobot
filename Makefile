@@ -30,4 +30,5 @@ k8sconfig:
 k8s-deploy:
 		helm upgrade --install gobot ./deploy/gobot \
 		--namespace gobot \
-		--set env.slackToken="${SLACK_TOKEN}"
+		--set env.slackToken="${SLACK_TOKEN}" \
+		--set image.tag="${TAG}"
