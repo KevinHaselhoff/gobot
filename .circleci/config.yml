@@ -2,7 +2,7 @@ version: 2
 jobs:
   build_push:
     docker:
-      - image: ubuntu:18.04
+      - image: alpine:3.8
         environment:
           TAG: v${CIRCLE_BUILD_NUM} 
 
@@ -12,8 +12,9 @@ jobs:
       - run:
           name: Install make
           command: |
-            apt-get update
-            apt-get install make
+            apk update
+            apk add make
+            apk add docker
 
       - setup_remote_docker:
           version: 17.06.0-ce
