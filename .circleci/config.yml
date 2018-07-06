@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: alpine:3.7
         environment:
-          TAG: v${CIRCLE_BUILD_NUM} 
+          TAG: v${CIRCLE_SHA1} 
 
     steps:
       - checkout
@@ -43,7 +43,7 @@ jobs:
     docker:
       - image: google/cloud-sdk
         environment:
-          TAG: v${CIRCLE_BUILD_NUM} 
+          TAG: v${CIRCLE_SHA1} 
 
     steps:
       - checkout
