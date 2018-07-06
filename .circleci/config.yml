@@ -22,19 +22,19 @@ jobs:
       
       - run:
           name: Login to docker hub
-          shell: /bin/bash
+          shell: /bin/sh
           command: |
             make login
 
       - run:
           name: Build docker container
-          shell: /bin/bash
+          shell: /bin/sh
           command: |
             make build
 
       - run:
           name: Push docker container
-          shell: /bin/bash
+          shell: /bin/sh
           command: |
             make push
 
