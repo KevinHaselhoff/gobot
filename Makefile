@@ -8,7 +8,7 @@ DOCKER_IMAGE := ${DOCKER_REGISTRY}/${IMAGE_NAME}
 
 .PHONY: login
 login:
-		echo "${DOCKERHUB_PASSWORD}" | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
+		docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
 
 .PHONY: build
 build:
